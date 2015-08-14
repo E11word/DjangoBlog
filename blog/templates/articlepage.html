@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block left_content %}
+    <div class="topnew">
+      <h2>{{ article.title }}</h2>
+      <div class="blog">
+        <ul>
+          <li><a>作者： {{ article.user.username }}</a> | <a>发布： {{ article.date_publish | date:'Y-m-d'}}</a>  | <a>浏览： {{ article.click_count }}</a>  | <a>评论： <a><b>{{ article.comment_set.all.count }}</b></a></a>  |  <a>{% for tag in article.tag.all %} 标签： <a = href="{% url 'articletag' %}?id={{ tag.pk }}"><b>{{ tag.name }}</b> {% endfor %}</a></a></li>
+          <p>
+              {% autoescape off %}
+              {{ article.content }}
+              {% endautoescape %}
+          </p>
+        </ul>
+      </div>
+    </div>
+    <div class="comment">
+      <div class="com">
+        <h1>已有<a>{{ article.comment_set.all.count }}</a>条评论 <span class="ping f_r"><a  href="{% url 'articlecomment' %}?id={{ article.pk }}">评论</a></span></h1>
+       </div>
+           {% for comment in comment_list %}
+          <ul>
+              <p>{{ comment.user }}  <a>{{ comment.date_publish |date:"Y-m-d"}} </a>
+              <li>{{ comment.content }}</li></p>
+
+          </ul>
+           {% endfor %}
+    </div>
+{% endblock %}

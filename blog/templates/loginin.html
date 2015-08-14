@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>用户登录</title>
+</head>
+  <style type="text/css">
+    body{margin:200px 300px 300px 650px;color:#efd;background:#453;}
+    input {padding: 0 0 0 30px 0; }
+    a {color:#FFFFFF}
+  </style>
+<body>
+<h1>登录页面</h1>
+<form method = 'post' enctype="multipart/form-data">
+     {% csrf_token %}
+         <!--{{ coment_data.as_p }}-->
+     用户账号:<input type="text" name="username">
+     <br>
+     输入口令:<input type="password" name="password">
+      <input type="submit" value = "登录" />
+      <a href="{% url 'register' %}">注册</a>
+</form>
+</body>
+</html>

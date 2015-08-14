@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block left_content %}
+    <div class="topnew">
+      <h2>{{ article.title }}</h2>
+    </div>
+    <div class="comment">
+      <div class="com">
+        <h1>已有<a>{{ article.comment_set.all.count }}</a>条评论 <span class="ping f_r"><a  href="/">评论</a></span></h1>
+       </div>
+           {% for comment in comment_list %}
+          <ul>
+              <p>{{ comment.user }}  <a>{{ comment.date_publish |date:"Y-m-d"}} </a>
+              <li>{{ comment.content }}</li></p>
+          </ul>
+           {% endfor %}
+    </div>
+     <div class="subcom">
+        <form method = 'post'>
+        {% csrf_token %}
+          账号:<input type="text" name="username">
+          密码:<input type="password" name="password">
+          <textarea cols =80 rows=5 name="content" placeholder="评论"></textarea>
+          <br>
+          <button type="submit" > 提交 </button>
+         </form>
+      </div>
+{% endblock %}
