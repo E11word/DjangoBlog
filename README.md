@@ -16,7 +16,7 @@ Django 做的博客系统
   6.实现用户ip浏览次数统计功能  
   
   用阿里云ECS部署，地址：http://120.24.50.177/
-  前段模板来源于http://www.yangqq.com/download/div/2015-04-10/746.html，在此基础上改的。
+  前段模板来源于该网站，在此基础上改的。http://www.yangqq.com/download/div/2015-04-10/746.html。
   架构参考麦子学院
 
 
